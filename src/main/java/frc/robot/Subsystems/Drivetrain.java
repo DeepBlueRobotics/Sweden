@@ -16,7 +16,7 @@ public class Drivetrain extends SubsystemBase {
   /** Creates a new Drivetrain. */
   CANSparkMax leftMotor1 = MotorControllerFactory.createSparkMax(0, MotorConfig.NEO);
   //CANSparkMax leftMotor2 = MotorControllerFactory.createSparkMax(1, MotorConfig.NEO);
-  CANSparkMax rightMotor1 = MotorControllerFactory.createSparkMax(2, MotorConfig.NEO);
+  CANSparkMax rightMotor1 = MotorControllerFactory.createSparkMax(1, MotorConfig.NEO);
  // CANSparkMax rightMotor2 = MotorControllerFactory.createSparkMax(3, MotorConfig.NEO);
 
 

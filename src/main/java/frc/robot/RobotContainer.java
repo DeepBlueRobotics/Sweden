@@ -6,13 +6,21 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
+import frc.robot.Subsystems.Drivetrain;
 
 public class RobotContainer {
-  public RobotContainer() {
-    configureBindings();
+  Drivetrain dt;
+
+  public RobotContainer(Drivetrain drivetrain) {
+    dt = drivetrain;
+    configureBindings();  
   }
 
-  private void configureBindings() {}
+  private void configureBindings() {
+
+  }
+
+  
 
   public Command getAutonomousCommand() {
     return Commands.print("No autonomous command configured");
