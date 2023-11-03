@@ -20,8 +20,8 @@ public class Drivetrain extends SubsystemBase {
  // CANSparkMax rightMotor2 = MotorControllerFactory.createSparkMax(3, MotorConfig.NEO);
 
 
-  Joystick leftJoystick = new Joystick(0);
-  Joystick rightJoystick = new Joystick(1);
+  // Joystick leftJoystick = new Joystick(0);
+  // Joystick rightJoystick = new Joystick(1);
   
 
   public Drivetrain() {
@@ -30,8 +30,8 @@ public class Drivetrain extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-    double leftJoystickPosition = leftJoystick.getY(); // 1
-    double rightJoystickPosition = rightJoystick.getY(); // 0
+    //double leftJoystickPosition = leftJoystick.getY(); // 1
+    //double rightJoystickPosition = rightJoystick.getY(); // 0
     this.drive(leftJoystickPosition, rightJoystickPosition); 
     // this.drive(1, 0)
   }
