@@ -32,7 +32,7 @@ public class Drivetrain extends SubsystemBase {
     // This method will be called once per scheduler run
     //double leftJoystickPosition = leftJoystick.getY(); // 1
     //double rightJoystickPosition = rightJoystick.getY(); // 0
-    this.drive(leftJoystickPosition, rightJoystickPosition); 
+   // this.drive(leftJoystickPosition, rightJoystickPosition); 
     // this.drive(1, 0)
   }
 
