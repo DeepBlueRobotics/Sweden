@@ -20,9 +20,9 @@ public class Drivetrain extends SubsystemBase {
  // CANSparkMax rightMotor2 = MotorControllerFactory.createSparkMax(3, MotorConfig.NEO);
 
 
-  // Joystick leftJoystick = new Joystick(0);
- // Joystick rightJoystick = new Joystick(1);
-  
+       // Joystick leftJoystick = new Joystick(0);
+       // Joystick rightJoystick = new Joystick(1);
+  //please work please
 
   public Drivetrain() {
   }
