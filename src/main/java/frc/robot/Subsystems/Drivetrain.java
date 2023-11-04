@@ -21,7 +21,7 @@ public class Drivetrain extends SubsystemBase {
 
 
   // Joystick leftJoystick = new Joystick(0);
-  // Joystick rightJoystick = new Joystick(1);
+ // Joystick rightJoystick = new Joystick(1);
   
 
   public Drivetrain() {
