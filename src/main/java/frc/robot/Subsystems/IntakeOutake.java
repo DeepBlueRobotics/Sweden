@@ -39,9 +39,10 @@ public class IntakeOutake extends SubsystemBase {
     intakerightMotor.set(-1.0);
     outakeleftMotor.set(1.0);
     outakerightMotor.set(-1.0);
+
   }
 
-  public void stopOuatakeMotors() {
+  public void stopOutakeMotors() {
     intakeleftMotor.set(0);
     intakerightMotor.set(0);
     outakeleftMotor.set(0);
