@@ -9,7 +9,7 @@ import org.carlmontrobotics.lib199.MotorControllerFactory;
 
 import com.revrobotics.CANSparkMax;
 
-import edu.wpi.first.wpilibj.Joystick;
+//import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Drivetrain extends SubsystemBase {
@@ -20,9 +20,9 @@ public class Drivetrain extends SubsystemBase {
  // CANSparkMax rightMotor2 = MotorControllerFactory.createSparkMax(3, MotorConfig.NEO);
 
 
-  Joystick leftJoystick = new Joystick(0);
-  Joystick rightJoystick = new Joystick(1);
-  
+       // Joystick leftJoystick = new Joystick(0);
+       // Joystick rightJoystick = new Joystick(1);
+  //please work please
 
   public Drivetrain() {
   }
@@ -30,9 +30,9 @@ public class Drivetrain extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-    double leftJoystickPosition = leftJoystick.getY(); // 1
-    double rightJoystickPosition = rightJoystick.getY(); // 0
-    this.drive(leftJoystickPosition, rightJoystickPosition); 
+    //double leftJoystickPosition = leftJoystick.getY(); // 1
+    //double rightJoystickPosition = rightJoystick.getY(); // 0
+   // this.drive(leftJoystickPosition, rightJoystickPosition); 
     // this.drive(1, 0)
   }
 

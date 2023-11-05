@@ -20,6 +20,8 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
 
+ XboxController controller = new XboxController(0);
+ 
   private RobotContainer m_robotContainer;
   private Drivetrain dt = new Drivetrain();
 
@@ -64,17 +66,16 @@ public class Robot extends TimedRobot {
     }
   }
 
-  XboxController controller = new XboxController(0);
   //Joystick leftJoystick = new Joystick(0);
   //Joystick rightJoystick = new Joystick(1);
 
   @Override
   public void teleopPeriodic() {
-    double leftJoystickPosition = controller.getLeftY();
-    double rightJoystickPosition = controller.getRightY();
+    double leftJoystickPosition = -controller.getLeftY();
+    double rightJoystickPosition = -controller.getRightY();
     //double leftJoystickPosition = leftJoystick.getY(); // 1
     //double rightJoystickPosition = rightJoystick.getY(); // 0
-    dt.drive(leftJoystickPosition, rightJoystickPosition); 
+    dt.drive(leftJoystickPosition, rightJoystickPosition);
   }
 
   @Override
