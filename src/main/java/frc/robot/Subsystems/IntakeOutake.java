@@ -20,13 +20,19 @@ public class IntakeOutake extends SubsystemBase {
 
 
 
-  /** Creates a new shooter. */
+  /* Creates a new shooter. */
   public IntakeOutake() {}
 
 
   public void intake() {
     intakeleftMotor.set(1.0);
     intakerightMotor.set(-1.0);
+    double intakeLeftOutput = intakeleftMotor.get();
+    double intakeRightOutput = intakerightMotor.get();
+    if (intakeLeftOutput <= 0.45 && intakeRightOutput <= -0.45){
+      intakeleftMotor.set(0);
+      intakerightMotor.set(0);
+    }
   }
 
   public void stopIntakeMotors() {

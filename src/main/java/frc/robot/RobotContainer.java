@@ -12,7 +12,7 @@ import frc.robot.Subsystems.Drivetrain;
 import frc.robot.Subsystems.IntakeOutake;
 import edu.wpi.first.wpilibj.XboxController.Button;
 import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.GenericHID; 
+//import edu.wpi.first.wpilibj.GenericHID; 
 
 
 public class RobotContainer {
@@ -27,9 +27,6 @@ public class RobotContainer {
   }
 
   private void configureBindings(XboxController controller){
-    //XboxController controller;
-    //JoystickButton rightBumper = new JoystickButton(controller, 0);
-    //JoystickButton leftBumper = new JoystickButton(controller, 0);
 
     new JoystickButton(controller, Button.kRightBumper.value).onTrue(new InstantCommand(
       () -> {
