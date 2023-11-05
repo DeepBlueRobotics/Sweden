@@ -11,25 +11,34 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.Subsystems.Drivetrain;
 import frc.robot.Subsystems.IntakeOutake;
 import edu.wpi.first.wpilibj.XboxController.Button;
-import edu.wpi.first.wpilibj.XboxController; 
+import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.GenericHID; 
 
 
 public class RobotContainer {
   Drivetrain dt;
   IntakeOutake in = new IntakeOutake();
+  XboxController controller = new XboxController(0);
 
   public RobotContainer(Drivetrain drivetrain) {
     dt = drivetrain;
     
-    configureBindings();  
+    configureBindings(controller);  
   }
 
-  private void configureBindings() {
+  private void configureBindings(XboxController controller){
+    //XboxController controller;
+    //JoystickButton rightBumper = new JoystickButton(controller, 0);
+    //JoystickButton leftBumper = new JoystickButton(controller, 0);
+
     new JoystickButton(controller, Button.kRightBumper.value).onTrue(new InstantCommand(
       () -> {
         in.intake();
       }
       ));
+
+      
+
     new JoystickButton(controller, Button.kLeftBumper.value).onTrue(new InstantCommand(
       () -> {
         in.outake();
