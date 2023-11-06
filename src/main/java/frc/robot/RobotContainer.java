@@ -33,12 +33,29 @@ public class RobotContainer {
         in.intake();
       }
       ));
-
-      
-
+    new JoystickButton(controller, Button.kRightBumper.value).onFalse(new InstantCommand(
+      () -> {
+        in.stopIntakeMotors();
+      }
+      ));
     new JoystickButton(controller, Button.kLeftBumper.value).onTrue(new InstantCommand(
       () -> {
         in.outake();
+      }
+      ));
+    new JoystickButton(controller, Button.kLeftBumper.value).onFalse(new InstantCommand(
+      () -> {
+        in.stopOutakeMotors();
+      }
+      ));
+    new JoystickButton(controller, Button.kB.value).onTrue(new InstantCommand(
+      () -> {
+        dt.slowmode(controller);
+      }
+      ));
+    new JoystickButton(controller, Button.kA.value).onTrue(new InstantCommand(
+      () -> {
+        dt.drive(0, 0);
       }
       ));
   }
