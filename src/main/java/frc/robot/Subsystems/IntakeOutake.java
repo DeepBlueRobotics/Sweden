@@ -5,6 +5,8 @@
 package frc.robot.Subsystems ;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
+
 //import edu.wpi.first.wpilibj.XboxController;
 import org.carlmontrobotics.lib199.MotorControllerFactory;
 import com.revrobotics.CANSparkMax;
@@ -12,26 +14,31 @@ import com.revrobotics.CANSparkMax;
 import org.carlmontrobotics.MotorConfig;
 
 public class IntakeOutake extends SubsystemBase {
-  CANSparkMax intakerightMotor = MotorControllerFactory.createSparkMax(0, MotorConfig.NEO);
-  CANSparkMax intakeleftMotor = MotorControllerFactory.createSparkMax(1, MotorConfig.NEO);
-  CANSparkMax outakerightMotor = MotorControllerFactory.createSparkMax(2, MotorConfig.NEO);
-  CANSparkMax outakeleftMotor = MotorControllerFactory.createSparkMax(3, MotorConfig.NEO);
+  private CANSparkMax intakerightMotor = MotorControllerFactory.createSparkMax(Constants.INTAKE_RIGHT_MOTOR_PORT, MotorConfig.NEO_550);
+  private CANSparkMax intakeleftMotor = MotorControllerFactory.createSparkMax(Constants.INTAKE_LEFT_MOTOR_PORT, MotorConfig.NEO_550);
+  private CANSparkMax outakerightMotor = MotorControllerFactory.createSparkMax(Constants.OUTAKE_RIGHT_MOTOR_PORT, MotorConfig.NEO_550);
+  private CANSparkMax outakeleftMotor = MotorControllerFactory.createSparkMax(Constants.OUTAKE_LEFT_MOTOR_PORT, MotorConfig.NEO_550);
+
+  double intakeDirectionLeft = 1;
+  double intakeDirectionRight = -1;
  
 
 
 
   /* Creates a new shooter. */
-  public IntakeOutake() {}
+  public IntakeOutake() {
+    intakerightMotor.setInverted(true);
+  }
 
-
-  public void intake() {
-    intakeleftMotor.set(1.0);
-    intakerightMotor.set(-1.0);
+// check if motors spin right way, if not invert it with the above method (setInverted)
+  public void intake(double SPEED_WHEN_NOT_INTAKING) {
+    intakeleftMotor.set(intakeDirectionLeft);
+    intakerightMotor.set(intakeDirectionRight);
     double intakeLeftOutput = intakeleftMotor.get();
     double intakeRightOutput = intakerightMotor.get();
-    if (intakeLeftOutput <= 0.45 && intakeRightOutput <= -0.45){
-      intakeleftMotor.set(0);
-      intakerightMotor.set(0);
+
+    if (intakeLeftOutput <= SPEED_WHEN_NOT_INTAKING && intakeRightOutput >= -SPEED_WHEN_NOT_INTAKING){
+      stopIntakeMotors();
     }
   }
 
@@ -40,17 +47,17 @@ public class IntakeOutake extends SubsystemBase {
     intakerightMotor.set(0);
   }
 
-  public void outake() {
-    intakeleftMotor.set(1.0);
-    intakerightMotor.set(-1.0);
-    outakeleftMotor.set(1.0);
-    outakerightMotor.set(-1.0);
+  public void outake(double SPEED_WHEN_INTAKING) {
+    outakeleftMotor.set(-intakeDirectionLeft);
+    outakerightMotor.set(-intakeDirectionRight);
+    double outakeLeftOutput = outakeleftMotor.get();
+    double outakeRightOutput = outakerightMotor.get();
 
+    if(outakeLeftOutput >= SPEED_WHEN_INTAKING && outakeRightOutput >= -SPEED_WHEN_INTAKING)
+     stopOutakeMotors();
   }
 
   public void stopOutakeMotors() {
-    intakeleftMotor.set(0);
-    intakerightMotor.set(0);
     outakeleftMotor.set(0);
     outakerightMotor.set(0);
   }

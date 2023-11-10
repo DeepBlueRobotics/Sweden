@@ -4,6 +4,7 @@
 
 package frc.robot;
 
+//import frc.robot.Constants;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
@@ -16,49 +17,57 @@ import edu.wpi.first.wpilibj.XboxController;
 
 
 public class RobotContainer {
-  Drivetrain dt;
-  IntakeOutake in = new IntakeOutake();
-  XboxController controller = new XboxController(0);
+  private IntakeOutake in = new IntakeOutake();
+ // in.IntakeOutake(intakeDirectionLeft, intakeDirectionRight);
+  private XboxController controller = new XboxController(Constants.XBOX_CONTROLLER_PORT); 
+  public Drivetrain dt = new Drivetrain(controller);
+//always initialize subsystems here
 
-  public RobotContainer(Drivetrain drivetrain) {
-    dt = drivetrain;
+
+  public RobotContainer() {
     
-    configureBindings(controller);  
+    configureBindings();  
   }
 
-  private void configureBindings(XboxController controller){
+  private void configureBindings(){
 
     new JoystickButton(controller, Button.kRightBumper.value).onTrue(new InstantCommand(
       () -> {
-        in.intake();
-      }
+        in.intake(Constants.SPEED_WHEN_NOT_INTAKING);
+      }  
       ));
+
     new JoystickButton(controller, Button.kRightBumper.value).onFalse(new InstantCommand(
       () -> {
         in.stopIntakeMotors();
       }
       ));
+
     new JoystickButton(controller, Button.kLeftBumper.value).onTrue(new InstantCommand(
       () -> {
-        in.outake();
+        in.outake(Constants.SPEED_WHEN_INTAKING);
       }
       ));
+
     new JoystickButton(controller, Button.kLeftBumper.value).onFalse(new InstantCommand(
       () -> {
         in.stopOutakeMotors();
-      }
+      }  
       ));
+  
     new JoystickButton(controller, Button.kB.value).onTrue(new InstantCommand(
       () -> {
-        dt.slowmode(controller);
+        dt.slowmode();
       }
       ));
+
     new JoystickButton(controller, Button.kA.value).onTrue(new InstantCommand(
       () -> {
-        dt.drive(0, 0);
+        dt.drive();
       }
       ));
-  }
+    }
+  
 
 
   public Command getAutonomousCommand() {

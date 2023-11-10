@@ -6,13 +6,16 @@ package frc.robot;
 
 
 //import com.revrobotics.CANSparkMax;
-import frc.robot.Subsystems.Drivetrain;
+//import frc.robot.Subsystems.Drivetrain;
 //import edu.wpi.first.wpilibj.Joystick;
 //import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
 //import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+//import frc.robot.RobotContainer;
+//import frc.robot.Constants;
+//import frc.robot.RobotContainer;
 
 //import edu.wpi.first.wpilibj.XboxController;
 
@@ -22,11 +25,12 @@ public class Robot extends TimedRobot {
 
  
   private RobotContainer m_robotContainer;
-  private Drivetrain dt = new Drivetrain();
+   //Drivetrain dt = new Drivetrain();
+   // You already intialized it in Robot Container so you don't need it here again, right?
 
   @Override
   public void robotInit() {
-    m_robotContainer = new RobotContainer(dt);
+    m_robotContainer = new RobotContainer();
   }
 
   @Override
@@ -67,11 +71,7 @@ public class Robot extends TimedRobot {
 
 
   @Override
-  public void teleopPeriodic() {
-    double leftJoystickPosition = -m_robotContainer.controller.getLeftY();
-    double rightJoystickPosition = m_robotContainer.controller.getRightY();
-    dt.drive(leftJoystickPosition, rightJoystickPosition);
-  }
+  public void teleopPeriodic() {}
 
   @Override
   public void teleopExit() {}
