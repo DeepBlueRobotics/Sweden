@@ -14,8 +14,8 @@ import com.revrobotics.CANSparkMax;
 import org.carlmontrobotics.MotorConfig;
 
 public class IntakeOutake extends SubsystemBase {
-  private CANSparkMax intakerightMotor = MotorControllerFactory.createSparkMax(Constants.INTAKE_RIGHT_MOTOR_PORT, MotorConfig.NEO_550);
-  private CANSparkMax intakeleftMotor = MotorControllerFactory.createSparkMax(Constants.INTAKE_LEFT_MOTOR_PORT, MotorConfig.NEO_550);
+  private CANSparkMax intakerightMotor = MotorControllerFactory.createSparkMax(Constants.INTAKE_RIGHT_MOTOR_PORT, MotorConfig.NEO);
+  private CANSparkMax intakeleftMotor = MotorControllerFactory.createSparkMax(Constants.INTAKE_LEFT_MOTOR_PORT, MotorConfig.NEO);
   private CANSparkMax outakerightMotor = MotorControllerFactory.createSparkMax(Constants.OUTAKE_RIGHT_MOTOR_PORT, MotorConfig.NEO_550);
   private CANSparkMax outakeleftMotor = MotorControllerFactory.createSparkMax(Constants.OUTAKE_LEFT_MOTOR_PORT, MotorConfig.NEO_550);
 
@@ -37,7 +37,7 @@ public class IntakeOutake extends SubsystemBase {
     double intakeLeftOutput = intakeleftMotor.get();
     double intakeRightOutput = intakerightMotor.get();
 
-    if (intakeLeftOutput <= SPEED_WHEN_NOT_INTAKING && intakeRightOutput >= -SPEED_WHEN_NOT_INTAKING){
+    if (intakeLeftOutput <= Constants.SPEED_WHEN_NOT_INTAKING && intakeRightOutput >= Constants.SPEED_WHEN_NOT_INTAKING){
       stopIntakeMotors();
     }
   }
@@ -53,7 +53,7 @@ public class IntakeOutake extends SubsystemBase {
     double outakeLeftOutput = outakeleftMotor.get();
     double outakeRightOutput = outakerightMotor.get();
 
-    if(outakeLeftOutput >= SPEED_WHEN_INTAKING && outakeRightOutput >= -SPEED_WHEN_INTAKING)
+    if(outakeLeftOutput >= Constants.SPEED_WHEN_INTAKING && outakeRightOutput >= Constants.SPEED_WHEN_INTAKING)
      stopOutakeMotors();
   }
 
