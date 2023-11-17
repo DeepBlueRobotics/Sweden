@@ -35,9 +35,7 @@ public class RobotContainer {
       () -> {
         in.intake(Constants.SPEED_WHEN_NOT_INTAKING);
       }  
-      ));
-
-    new JoystickButton(controller, Button.kRightBumper.value).onFalse(new InstantCommand(
+      )).onFalse(new InstantCommand(
       () -> {
         in.stopIntakeMotors();
       }
@@ -47,9 +45,7 @@ public class RobotContainer {
       () -> {
         in.outake(Constants.SPEED_WHEN_INTAKING);
       }
-      ));
-
-    new JoystickButton(controller, Button.kLeftBumper.value).onFalse(new InstantCommand(
+      )).onFalse(new InstantCommand(
       () -> {
         in.stopOutakeMotors();
       }  
