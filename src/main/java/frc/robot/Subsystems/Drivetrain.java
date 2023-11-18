@@ -22,18 +22,15 @@ public class Drivetrain extends SubsystemBase {
   public boolean slowmodeon = false;
 
   public Drivetrain(XboxController controller) {
+    this.controller = controller;
   } 
 
   @Override
   public void periodic() {
     //SmartDashborad.(get/put)Number(key: "",);
     // This method will be called once per scheduler run
-    if (slowmodeon == true){
-      slowmode();
-    }
-    else {
-      drive();
-    }
+    if (slowmodeon) slowmode();
+    else drive();
   }
 
   public void drive(){ 
