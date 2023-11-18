@@ -19,12 +19,21 @@ public class Drivetrain extends SubsystemBase {
   private CANSparkMax leftMotor = MotorControllerFactory.createSparkMax(Constants.LEFT_MOTOR_PORT, MotorConfig.NEO);
   private CANSparkMax rightMotor = MotorControllerFactory.createSparkMax(Constants.RIGHT_MOTOR_PORT, MotorConfig.NEO);
   private XboxController controller;
+  public boolean slowmodeon = false;
 
   public Drivetrain(XboxController controller) {
-  }
+  } 
+
   @Override
   public void periodic() {
+    //SmartDashborad.(get/put)Number(key: "",);
     // This method will be called once per scheduler run
+    if (slowmodeon == true){
+      slowmode();
+    }
+    else {
+      drive();
+    }
   }
 
   public void drive(){ 

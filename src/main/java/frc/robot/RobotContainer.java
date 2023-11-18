@@ -51,15 +51,18 @@ public class RobotContainer {
       }  
       ));
   
+      
     new JoystickButton(controller, Button.kB.value).onTrue(new InstantCommand(
       () -> {
-        dt.slowmode();
+        dt.slowmodeon = true;
+        //turns on slowmode
       }
       ));
 
     new JoystickButton(controller, Button.kA.value).onTrue(new InstantCommand(
       () -> {
-        dt.drive();
+        dt.slowmodeon = false;
+        //this button changes mode back to regular driving
       }
       ));
     }
