@@ -42,9 +42,9 @@ public class Drivetrain extends SubsystemBase {
   }
 
   public void slowmode() {
-  double right = -controller.getRightY() * Constants.halfDriveSpeedMultiplier;
-  double left = controller.getLeftY() * Constants.halfTurnSpeedMultiplier;
-  leftMotor.set(-left);
-  rightMotor.set(right);
+    double right = -controller.getRightY() * Constants.Drivetrain.halfDriveSpeedMultiplier;
+    double left = controller.getLeftY() * Constants.Drivetrain.halfTurnSpeedMultiplier;
+    leftMotor.set(-left);
+    rightMotor.set(right);
 }
 }

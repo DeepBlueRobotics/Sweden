@@ -31,9 +31,9 @@ public class RobotContainer {
 
   private void configureBindings(){
 
-    new JoystickButton(controller, Button.kRightBumper.value).onTrue(new InstantCommand(
+    new JoystickButton(controller, Constants.INTAKE_BUTTON).onTrue(new InstantCommand(
       () -> {
-        in.intake(Constants.SPEED_WHEN_NOT_INTAKING);
+        in.intake();
       }  
       )).onFalse(new InstantCommand(
       () -> {
@@ -41,9 +41,11 @@ public class RobotContainer {
       }
       ));
 
-    new JoystickButton(controller, Button.kLeftBumper.value).onTrue(new InstantCommand(
+        //if you let go of the button it will stop intaking or outaking
+
+    new JoystickButton(controller, Constants.OUTAKE_BUTTON).onTrue(new InstantCommand(
       () -> {
-        in.outake(Constants.SPEED_WHEN_INTAKING);
+        in.outake();
       }
       )).onFalse(new InstantCommand(
       () -> {

@@ -20,8 +20,8 @@ public class IntakeOutake extends SubsystemBase {
   private CANSparkMax outakerightMotor = MotorControllerFactory.createSparkMax(Constants.OUTAKE_RIGHT_MOTOR_PORT, MotorConfig.NEO_550);
   private CANSparkMax outakeleftMotor = MotorControllerFactory.createSparkMax(Constants.OUTAKE_LEFT_MOTOR_PORT, MotorConfig.NEO_550);
 
-  double intakeDirectionLeft = 1;
-  double intakeDirectionRight = -1;
+  private double intakeDirectionLeft = 1;
+  private double intakeDirectionRight = -1;
  
 
 
@@ -40,7 +40,7 @@ public class IntakeOutake extends SubsystemBase {
   }
 
 // check if motors spin right way, if not invert it with the above method (setInverted)
-  public void intake(double SPEED_WHEN_NOT_INTAKING) {
+  public void intake() {
     intakeleftMotor.set(intakeDirectionLeft);
     intakerightMotor.set(intakeDirectionRight);
     double intakeLeftOutput = intakeleftMotor.get();
@@ -56,7 +56,7 @@ public class IntakeOutake extends SubsystemBase {
     intakerightMotor.set(0);
   }
 
-  public void outake(double SPEED_WHEN_INTAKING) {
+  public void outake() {
     outakeleftMotor.set(-intakeDirectionLeft);
     outakerightMotor.set(-intakeDirectionRight);
     double outakeLeftOutput = outakeleftMotor.get();
