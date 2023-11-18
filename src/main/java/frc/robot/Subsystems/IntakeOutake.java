@@ -4,6 +4,7 @@
 
 package frc.robot.Subsystems ;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -28,6 +29,14 @@ public class IntakeOutake extends SubsystemBase {
   /* Creates a new shooter. */
   public IntakeOutake() {
     intakerightMotor.setInverted(true);
+  }
+
+  @Override
+  public void periodic() {
+    SmartDashboard.putNumber("IntakeDirLeft",intakeDirectionLeft);
+    SmartDashboard.putNumber("IntakeDirRight",intakeDirectionRight);
+    SmartDashboard.putNumber("OutakeDirLeft", -intakeDirectionLeft);
+    SmartDashboard.putNumber("OutakeDirRight", -intakeDirectionRight);
   }
 
 // check if motors spin right way, if not invert it with the above method (setInverted)
