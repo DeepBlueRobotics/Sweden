@@ -29,13 +29,16 @@ public class Drivetrain extends SubsystemBase {
   public void periodic() {
     //SmartDashborad.(get/put)Number(key: "",);
     // This method will be called once per scheduler run
-    if (slowmodeon) slowmode();
-    else drive();
+    if (slowmodeon) {
+      slowmode();
+    } else {
+      drive(controller.getLeftY(), controller.getRightY());
+    }
   }
 
-  public void drive(){ 
-    leftMotor.set(controller.getLeftY());
-    rightMotor.set(controller.getRightY());
+  public void drive(double leftY, double rightY){ 
+    leftMotor.set(leftY);
+    rightMotor.set(rightY);
     //double leftJoystickPosition = -controller.getLeftY();
     //double rightJoystickPosition = controller.getRightY();
    //dt.drive(leftJoystickPosition, rightJoystickPosition);
