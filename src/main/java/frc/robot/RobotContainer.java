@@ -13,65 +13,56 @@ import frc.robot.Subsystems.Drivetrain;
 import frc.robot.Subsystems.IntakeOutake;
 import edu.wpi.first.wpilibj.XboxController.Button;
 import edu.wpi.first.wpilibj.XboxController;
+import frc.robot.commands.Autonomous;
 //import edu.wpi.first.wpilibj.GenericHID; 
-
 
 public class RobotContainer {
   private IntakeOutake in = new IntakeOutake();
- // in.IntakeOutake(intakeDirectionLeft, intakeDirectionRight);
-  private XboxController controller = new XboxController(Constants.XBOX_CONTROLLER_PORT); 
-  public Drivetrain dt = new Drivetrain(controller);
-//always initialize subsystems here
-
+  // in.IntakeOutake(intakeDirectionLeft, intakeDirectionRight);
+  private XboxController controller = new XboxController(Constants.XBOX_CONTROLLER_PORT);
+  private Drivetrain dt = new Drivetrain(controller);
+  private Autonomous autonomous;
+  // always initialize subsystems here
 
   public RobotContainer() {
-    
-    configureBindings();  
+
+    configureBindings();
   }
 
-  private void configureBindings(){
+  private void configureBindings() {
 
     new JoystickButton(controller, Constants.INTAKE_BUTTON).onTrue(new InstantCommand(
-      () -> {
-        in.intake();
-      }  
-      )).onFalse(new InstantCommand(
-      () -> {
-        in.stopIntakeMotors();
-      }
-      ));
+        () -> {
+          in.intake();
+        })).onFalse(new InstantCommand(
+            () -> {
+              in.stopIntakeMotors();
+            }));
 
-        //if you let go of the button it will stop intaking or outaking
+    // if you let go of the button it will stop intaking or outaking
 
     new JoystickButton(controller, Constants.OUTAKE_BUTTON).onTrue(new InstantCommand(
-      () -> {
-        in.outake();
-      }
-      )).onFalse(new InstantCommand(
-      () -> {
-        in.stopOutakeMotors();
-      }  
-      ));
-  
-      
+        () -> {
+          in.outake();
+        })).onFalse(new InstantCommand(
+            () -> {
+              in.stopOutakeMotors();
+            }));
+
     new JoystickButton(controller, Button.kB.value).onTrue(new InstantCommand(
-      () -> {
-        dt.slowmodeon = true;
-        //turns on slowmode
-      }
-      ));
+        () -> {
+          dt.slowmodeon = true;
+          // turns on slowmode
+        }));
 
     new JoystickButton(controller, Button.kA.value).onTrue(new InstantCommand(
-      () -> {
-        dt.slowmodeon = false;
-        //this button changes mode back to regular driving
-      }
-      ));
-    }
-  
-
+        () -> {
+          dt.slowmodeon = false;
+          // this button changes mode back to regular driving
+        }));
+  }
 
   public Command getAutonomousCommand() {
-    return Commands.print("No autonomous command configured");
+    return new Autonomous(dt);
   }
 }
