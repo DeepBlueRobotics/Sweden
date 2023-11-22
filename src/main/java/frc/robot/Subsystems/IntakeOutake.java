@@ -28,7 +28,9 @@ public class IntakeOutake extends SubsystemBase {
 
   /* Creates a new shooter. */
   public IntakeOutake() {
-    intakerightMotor.setInverted(true);
+    intakerightMotor.setInverted(false);
+    outakerightMotor.setInverted(true);  
+    outakeleftMotor.setInverted(true);
   }
 
   @Override

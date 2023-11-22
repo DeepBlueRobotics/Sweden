@@ -18,15 +18,15 @@ public final class Constants {
         public static final int LEFT_MOTOR_PORT = 0;
         public static final int RIGHT_MOTOR_PORT = 3;
         
-        //TODO: change speed when and when not intaking to be accurate values
+        //change speed when and when not intaking to be accurate values
         public static final double SPEED_WHEN_NOT_INTAKING = 0.45;
         public static final double SPEED_WHEN_INTAKING = 0.3;
         public static final int XBOX_CONTROLLER_PORT = 1;
 
-        public static final int INTAKE_RIGHT_MOTOR_PORT = 19;
+        public static final int INTAKE_RIGHT_MOTOR_PORT = 14;
         public static final int INTAKE_LEFT_MOTOR_PORT = 1;
         public static final int OUTAKE_RIGHT_MOTOR_PORT = 9;
-        public static final int OUTAKE_LEFT_MOTOR_PORT = 20;
+        public static final int OUTAKE_LEFT_MOTOR_PORT = 17;
 
         public static final int INTAKE_BUTTON = Button.kRightBumper.value;
         public static final int OUTAKE_BUTTON = Button.kLeftBumper.value;
