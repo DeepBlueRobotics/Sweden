@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.Subsystems.Drivetrain;
 import frc.robot.Subsystems.IntakeOutake;
-import edu.wpi.first.wpilibj.XboxController.Button;
+//import edu.wpi.first.wpilibj.XboxController.Button;
 import edu.wpi.first.wpilibj.XboxController;
 //import edu.wpi.first.wpilibj.GenericHID; 
 
@@ -53,11 +53,16 @@ public class RobotContainer {
       }  
       ));
 
-  /*new JoystickButton(controller, Constants. BACKWARDS_BUTTON).onTrue(new InstantCommand(
+    new JoystickButton(controller, Constants.BACKWARDS_BUTTON).onTrue(new InstantCommand(
       () -> {
-          backwardmode(); (or is it backwardmode = true; ???))
+          in.backwardmode(); 
       }
-    )); */
+      )).onFalse(new InstantCommand(
+      () -> {
+        //TODO: Make sure that the stopIntakeMotors doesn't stop the motors when X is released
+        in.stopIntakeMotors();
+      }
+    ));
     //make a button that turns intake motors backwards for a few seconds really slowly (button X)
     //5% power for 0.2 seconds
     //TODO: Make a method in intakeoutake file (look at slowmode in drivetrain file to reference) and call it in the lambda here
