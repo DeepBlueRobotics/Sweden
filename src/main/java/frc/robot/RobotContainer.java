@@ -55,7 +55,7 @@ public class RobotContainer {
 
   /*new JoystickButton(controller, Constants. BACKWARDS_BUTTON).onTrue(new InstantCommand(
       () -> {
-          
+          backwardmode(); (or is it backwardmode = true; ???))
       }
     )); */
     //make a button that turns intake motors backwards for a few seconds really slowly (button X)

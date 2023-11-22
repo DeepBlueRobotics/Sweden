@@ -73,4 +73,11 @@ public class IntakeOutake extends SubsystemBase {
     outakerightMotor.set(0);
   }
 
+  /*public void backwardmode() {
+    double right = -controller.getRightY() * Constants.backbuttonDriveSpeedMultiplier;
+    double left = controller.getLeftY() * Constants.backbuttonDriveSpeedMultiplier;
+    leftMotor.set(-left);
+    rightMotor.set(right);
+  }
+  */
   }
