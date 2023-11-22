@@ -30,6 +30,9 @@ public final class Constants {
 
         public static final int INTAKE_BUTTON = Button.kRightBumper.value;
         public static final int OUTAKE_BUTTON = Button.kLeftBumper.value;
+        public static final int SLOWMODE = Button.kB.value;
+        public static final int REGULAR_DRIVE = Button.kA.value;
+    //  public static final int BACKWARDS_BUTTON = Button.kX.value;
 
     public final class Drivetrain {
         public static final double halfDriveSpeedMultiplier = 0.15;
