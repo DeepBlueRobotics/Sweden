@@ -13,18 +13,19 @@ import org.carlmontrobotics.lib199.MotorControllerFactory;
 import com.revrobotics.CANSparkMax;
 //import frc.robot.Constants;
 import org.carlmontrobotics.MotorConfig;
-import edu.wpi.first.wpilibj.Timer;
+//import edu.wpi.first.wpilibj.Timer;
 
 public class IntakeOutake extends SubsystemBase {
-  private CANSparkMax intakerightMotor = MotorControllerFactory.createSparkMax(Constants.INTAKE_RIGHT_MOTOR_PORT, MotorConfig.NEO);
-  private CANSparkMax intakeleftMotor = MotorControllerFactory.createSparkMax(Constants.INTAKE_LEFT_MOTOR_PORT, MotorConfig.NEO);
-  private CANSparkMax outakerightMotor = MotorControllerFactory.createSparkMax(Constants.OUTAKE_RIGHT_MOTOR_PORT, MotorConfig.NEO_550);
-  private CANSparkMax outakeleftMotor = MotorControllerFactory.createSparkMax(Constants.OUTAKE_LEFT_MOTOR_PORT, MotorConfig.NEO_550);
-  private double intakeBackwardLeft = 0.05;
-  private double intakeBackwardRight = -0.05;
+  public CANSparkMax intakerightMotor = MotorControllerFactory.createSparkMax(Constants.INTAKE_RIGHT_MOTOR_PORT, MotorConfig.NEO);
+  public CANSparkMax intakeleftMotor = MotorControllerFactory.createSparkMax(Constants.INTAKE_LEFT_MOTOR_PORT, MotorConfig.NEO);
+  public CANSparkMax outakerightMotor = MotorControllerFactory.createSparkMax(Constants.OUTAKE_RIGHT_MOTOR_PORT, MotorConfig.NEO_550);
+  public CANSparkMax outakeleftMotor = MotorControllerFactory.createSparkMax(Constants.OUTAKE_LEFT_MOTOR_PORT, MotorConfig.NEO_550);
+  public double intakeBackwardLeft = 0.05;
+  public double intakeBackwardRight = -0.05;
   private double intakeDirectionLeft = 1;
   private double intakeDirectionRight = -1;
-  double time;
+  double timenow;
+   double starttime;
  
 
 
@@ -76,9 +77,11 @@ public class IntakeOutake extends SubsystemBase {
     outakerightMotor.set(0);
   }
 
-  public void backwardmode() {
-    time = Timer.getFPGATimestamp();
+  /*/public void backwardmode() {
+    starttime = Timer.getFPGATimestamp();
+    timenow = Timer.getFPGATimestamp();
     //TODO: reset timer every time the funcion is called
+    time.reset();
     if(time > 0.2){
       intakeleftMotor.set(intakeBackwardLeft);
       intakerightMotor.set(intakeBackwardRight);
@@ -86,6 +89,6 @@ public class IntakeOutake extends SubsystemBase {
     else if(time == 0.2){
       intakeleftMotor.set(0);
       intakerightMotor.set(0);
-  } 
   }
+  }/*/
 }

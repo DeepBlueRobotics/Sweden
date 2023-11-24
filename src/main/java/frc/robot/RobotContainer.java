@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.Subsystems.Drivetrain;
 import frc.robot.Subsystems.IntakeOutake;
+import frc.robot.Command.BackwardsIntake;
 //import edu.wpi.first.wpilibj.XboxController.Button;
 import edu.wpi.first.wpilibj.XboxController;
 //import edu.wpi.first.wpilibj.GenericHID; 
@@ -18,6 +19,7 @@ import edu.wpi.first.wpilibj.XboxController;
 
 public class RobotContainer {
   private IntakeOutake in = new IntakeOutake();
+  private BackwardsIntake Back = new BackwardsIntake(in);
  // in.IntakeOutake(intakeDirectionLeft, intakeDirectionRight);
   private XboxController controller = new XboxController(Constants.XBOX_CONTROLLER_PORT); 
   public Drivetrain dt = new Drivetrain(controller);
@@ -58,7 +60,8 @@ public class RobotContainer {
       () -> {
           backward = true;
           if (backward == true) {
-            in.backwardmode();
+            Back.execute();
+            Back.initialize();
           }   
       }
       )).onFalse(new InstantCommand(
