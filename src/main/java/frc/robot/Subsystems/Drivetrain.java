@@ -16,8 +16,8 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class Drivetrain extends SubsystemBase {
   /** Creates a new Drivetrain. */
   
-  private CANSparkMax leftMotor = MotorControllerFactory.createSparkMax(Constants.LEFT_MOTOR_PORT, MotorConfig.NEO);
-  private CANSparkMax rightMotor = MotorControllerFactory.createSparkMax(Constants.RIGHT_MOTOR_PORT, MotorConfig.NEO);
+  public CANSparkMax leftMotor = MotorControllerFactory.createSparkMax(Constants.LEFT_MOTOR_PORT, MotorConfig.NEO);
+  public CANSparkMax rightMotor = MotorControllerFactory.createSparkMax(Constants.RIGHT_MOTOR_PORT, MotorConfig.NEO);
   private XboxController controller;
   public boolean slowmodeon = false;
 

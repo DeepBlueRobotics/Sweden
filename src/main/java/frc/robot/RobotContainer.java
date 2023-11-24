@@ -6,11 +6,12 @@ package frc.robot;
 
 //import frc.robot.Constants;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.Commands;
+//import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.Subsystems.Drivetrain;
 import frc.robot.Subsystems.IntakeOutake;
+import frc.robot.Command.Autonomous;
 import frc.robot.Command.BackwardsIntake;
 //import edu.wpi.first.wpilibj.XboxController.Button;
 import edu.wpi.first.wpilibj.XboxController;
@@ -22,7 +23,7 @@ public class RobotContainer {
   private BackwardsIntake Back = new BackwardsIntake(in);
  // in.IntakeOutake(intakeDirectionLeft, intakeDirectionRight);
   private XboxController controller = new XboxController(Constants.XBOX_CONTROLLER_PORT); 
-  public Drivetrain dt = new Drivetrain(controller);
+  private Drivetrain dt = new Drivetrain(controller);
   boolean backward;
 //always initialize subsystems here
 
@@ -94,6 +95,6 @@ public class RobotContainer {
 
 
   public Command getAutonomousCommand() {
-    return Commands.print("No autonomous command configured");
+    return new Autonomous(dt);
   }
 }
