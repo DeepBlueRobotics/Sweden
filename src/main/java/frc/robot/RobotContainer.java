@@ -21,6 +21,7 @@ public class RobotContainer {
  // in.IntakeOutake(intakeDirectionLeft, intakeDirectionRight);
   private XboxController controller = new XboxController(Constants.XBOX_CONTROLLER_PORT); 
   public Drivetrain dt = new Drivetrain(controller);
+  boolean backward;
 //always initialize subsystems here
 
 
@@ -55,12 +56,16 @@ public class RobotContainer {
 
     new JoystickButton(controller, Constants.BACKWARDS_BUTTON).onTrue(new InstantCommand(
       () -> {
-          in.backwardmode(); 
+          backward = true;
+          if (backward == true) {
+            in.backwardmode();
+          }   
       }
       )).onFalse(new InstantCommand(
       () -> {
+          backward = false;
         //TODO: Make sure that the stopIntakeMotors doesn't stop the motors when X is released
-        in.stopIntakeMotors();
+        
       }
     ));
     //make a button that turns intake motors backwards for a few seconds really slowly (button X)
