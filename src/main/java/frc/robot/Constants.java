@@ -4,9 +4,9 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.XboxController;
+//import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.XboxController.Button;
-import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+//import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
@@ -25,16 +25,19 @@ public final class Constants {
         public static final double SPEED_WHEN_INTAKING = 0.3;
         public static final int XBOX_CONTROLLER_PORT = 1;
         public static final int XBOX_CONTROLLER_PORT2 = 2;
-        public static final JoystickButton x1 = new JoystickButton(null, XBOX_CONTROLLER_PORT);
-        public static final JoystickButton x2 = new JoystickButton(null, XBOX_CONTROLLER_PORT2);
+
+        //public static final JoystickButton x1 = new JoystickButton(null, XBOX_CONTROLLER_PORT);
+        //public static final JoystickButton x2 = new JoystickButton(null, XBOX_CONTROLLER_PORT2);
 
         public static final int INTAKE_RIGHT_MOTOR_PORT = 14;
         public static final int INTAKE_LEFT_MOTOR_PORT = 1;
         public static final int OUTAKE_RIGHT_MOTOR_PORT = 9;
         public static final int OUTAKE_LEFT_MOTOR_PORT = 17;
 
+        public static final double INTAKE_BACKWARD_LEFT = -0.05;
+        public static final double INTAKE_BACKWARD_RIGHT = 0.05;
+
         //JoystickButton INTAKE_BUTTON = new JoystickButton(driver, Constants.OI.kButtonANum);
-        //TODO: fix the buttons
         /*/ public static final class Driver{
             public static int port = 1;
             public static final int REGULAR_DRIVE = Button.kA.value;

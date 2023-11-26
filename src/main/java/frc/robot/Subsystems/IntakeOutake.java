@@ -4,7 +4,7 @@
 
 package frc.robot.Subsystems ;
 
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -20,14 +20,22 @@ public class IntakeOutake extends SubsystemBase {
   public CANSparkMax intakeleftMotor = MotorControllerFactory.createSparkMax(Constants.INTAKE_LEFT_MOTOR_PORT, MotorConfig.NEO);
   public CANSparkMax outakerightMotor = MotorControllerFactory.createSparkMax(Constants.OUTAKE_RIGHT_MOTOR_PORT, MotorConfig.NEO_550);
   public CANSparkMax outakeleftMotor = MotorControllerFactory.createSparkMax(Constants.OUTAKE_LEFT_MOTOR_PORT, MotorConfig.NEO_550);
-  public double intakeBackwardLeft = 0.05;
-  public double intakeBackwardRight = -0.05;
+  
+  public double intakeBackwardLeft = Constants.INTAKE_BACKWARD_LEFT;
+  public double intakeBackwardRight = Constants.INTAKE_BACKWARD_RIGHT;
+
   private double intakeDirectionLeft = 1;
   private double intakeDirectionRight = -1;
+  //move to constants
   double timenow;
    double starttime;
- 
 
+   //LISTED BELOW ARE THE ACTUAL VALUES (they got inverted and mixed up all over)
+ 
+//intake left motor = 1
+//intake right motor = -1
+//outake left motor = 1
+//outake right motor = -1
 
 
   /* Creates a new shooter. */
@@ -39,10 +47,11 @@ public class IntakeOutake extends SubsystemBase {
 
   @Override
   public void periodic() {
-    SmartDashboard.putNumber("IntakeDirLeft",intakeDirectionLeft);
-    SmartDashboard.putNumber("IntakeDirRight",intakeDirectionRight);
-    SmartDashboard.putNumber("OutakeDirLeft", -intakeDirectionLeft);
-    SmartDashboard.putNumber("OutakeDirRight", -intakeDirectionRight);
+   // SmartDashboard.putNumber("IntakeDirLeft",intakeDirectionLeft);
+    //SmartDashboard.putNumber("IntakeDirRight",intakeDirectionRight);
+    //SmartDashboard.putNumber("OutakeDirLeft", -intakeDirectionLeft);
+    //SmartDashboard.putNumber("OutakeDirRight", -intakeDirectionRight);
+    //for the simulator, not necessary for robot function persay
   }
 
 // check if motors spin right way, if not invert it with the above method (setInverted)
