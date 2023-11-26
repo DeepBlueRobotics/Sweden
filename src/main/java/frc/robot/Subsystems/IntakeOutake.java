@@ -80,7 +80,7 @@ public class IntakeOutake extends SubsystemBase {
   /*/public void backwardmode() {
     starttime = Timer.getFPGATimestamp();
     timenow = Timer.getFPGATimestamp();
-    //TODO: reset timer every time the funcion is called
+    /
     time.reset();
     if(time > 0.2){
       intakeleftMotor.set(intakeBackwardLeft);

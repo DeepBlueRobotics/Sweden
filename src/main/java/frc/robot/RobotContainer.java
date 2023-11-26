@@ -4,7 +4,7 @@
 
 package frc.robot;
 
-//import frc.robot.Constants;
+import frc.robot.Constants;
 import edu.wpi.first.wpilibj2.command.Command;
 //import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
@@ -13,7 +13,7 @@ import frc.robot.Subsystems.Drivetrain;
 import frc.robot.Subsystems.IntakeOutake;
 import frc.robot.Command.Autonomous;
 import frc.robot.Command.BackwardsIntake;
-//import edu.wpi.first.wpilibj.XboxController.Button;
+import edu.wpi.first.wpilibj.XboxController.Button;
 import edu.wpi.first.wpilibj.XboxController;
 //import edu.wpi.first.wpilibj.GenericHID; 
 
@@ -22,7 +22,8 @@ public class RobotContainer {
   private IntakeOutake in = new IntakeOutake();
   private BackwardsIntake Back = new BackwardsIntake(in);
  // in.IntakeOutake(intakeDirectionLeft, intakeDirectionRight);
-  private XboxController controller = new XboxController(Constants.XBOX_CONTROLLER_PORT); 
+  private XboxController controller = new XboxController(Constants.XBOX_CONTROLLER_PORT);
+  private XboxController controller2 = new XboxController(Constants.XBOX_CONTROLLER_PORT2);  
   private Drivetrain dt = new Drivetrain(controller);
   boolean backward;
 //always initialize subsystems here
@@ -32,10 +33,10 @@ public class RobotContainer {
     
     configureBindings();  
   }
-
+  // when this button is pressed a certain line of code will be called
   private void configureBindings(){
 
-    new JoystickButton(controller, Constants.INTAKE_BUTTON).onTrue(new InstantCommand(
+    new JoystickButton(controller2, Constants.INTAKE_BUTTON).onTrue(new InstantCommand(
       () -> {
         in.intake();
       }  
@@ -47,7 +48,7 @@ public class RobotContainer {
 
         //if you let go of the button it will stop intaking or outaking
 
-    new JoystickButton(controller, Constants.OUTAKE_BUTTON).onTrue(new InstantCommand(
+    new JoystickButton(controller2, Constants.OUTAKE_BUTTON).onTrue(new InstantCommand(
       () -> {
         in.outake();
       }
@@ -57,7 +58,7 @@ public class RobotContainer {
       }  
       ));
 
-    new JoystickButton(controller, Constants.BACKWARDS_BUTTON).onTrue(new InstantCommand(
+    new JoystickButton(controller2, Constants.BACKWARDS_BUTTON).onTrue(new InstantCommand(
       () -> {
           backward = true;
           if (backward == true) {
@@ -68,13 +69,13 @@ public class RobotContainer {
       )).onFalse(new InstantCommand(
       () -> {
           backward = false;
-        //TODO: Make sure that the stopIntakeMotors doesn't stop the motors when X is released
+        //Make sure that the stopIntakeMotors doesn't stop the motors when X is released
         
       }
     ));
     //make a button that turns intake motors backwards for a few seconds really slowly (button X)
     //5% power for 0.2 seconds
-    //TODO: Make a method in intakeoutake file (look at slowmode in drivetrain file to reference) and call it in the lambda here
+    //Make a method in intakeoutake file (look at slowmode in drivetrain file to reference) and call it in the lambda here
     //figure out how to make it a timer
       
     new JoystickButton(controller, Constants.SLOWMODE).onTrue(new InstantCommand(

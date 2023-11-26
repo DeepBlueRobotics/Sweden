@@ -4,7 +4,9 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.XboxController.Button;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
@@ -22,17 +24,41 @@ public final class Constants {
         public static final double SPEED_WHEN_NOT_INTAKING = 0.45;
         public static final double SPEED_WHEN_INTAKING = 0.3;
         public static final int XBOX_CONTROLLER_PORT = 1;
+        public static final int XBOX_CONTROLLER_PORT2 = 2;
+        public static final JoystickButton x1 = new JoystickButton(null, XBOX_CONTROLLER_PORT);
+        public static final JoystickButton x2 = new JoystickButton(null, XBOX_CONTROLLER_PORT2);
 
         public static final int INTAKE_RIGHT_MOTOR_PORT = 14;
         public static final int INTAKE_LEFT_MOTOR_PORT = 1;
         public static final int OUTAKE_RIGHT_MOTOR_PORT = 9;
         public static final int OUTAKE_LEFT_MOTOR_PORT = 17;
 
+        //JoystickButton INTAKE_BUTTON = new JoystickButton(driver, Constants.OI.kButtonANum);
+        //TODO: fix the buttons
+        /*/ public static final class Driver{
+            public static int port = 1;
+            public static final int REGULAR_DRIVE = Button.kA.value;
+            public static final int SLOWMODE = Button.kB.value;
+
+        }
+        public static final class Manipulator{
+            public static int port = 2;
+            public static final int BACKWARDS_BUTTON = Button.kX.value;
+            public static final int INTAKE_BUTTON = Button.kRightBumper.value;
+            public static final int OUTAKE_BUTTON = Button.kLeftBumper.value;
+        }/*/ 
+        //public static final int INTAKE_BUTTON = x2.kRightBumper.value;
+        //public static final int OUTAKE_BUTTON = x2.kLeftBumper.value;
+        //public static final int SLOWMODE = x1.kB.value;
+        //public static final int REGULAR_DRIVE = x1.kA.value;
+        //public static final int BACKWARDS_BUTTON = x2.kX.value;
+
         public static final int INTAKE_BUTTON = Button.kRightBumper.value;
         public static final int OUTAKE_BUTTON = Button.kLeftBumper.value;
         public static final int SLOWMODE = Button.kB.value;
         public static final int REGULAR_DRIVE = Button.kA.value;
         public static final int BACKWARDS_BUTTON = Button.kX.value;
+
 
     //public static final double backbuttonDriveSpeedMultiplier = 0.05;
 
