@@ -58,9 +58,11 @@ public final class Constants {
 
         public static final int INTAKE_BUTTON = Button.kRightBumper.value;
         public static final int OUTAKE_BUTTON = Button.kLeftBumper.value;
+        //TODO: change to right trigger not right bumper and etc.
         public static final int SLOWMODE = Button.kB.value;
         public static final int REGULAR_DRIVE = Button.kA.value;
         public static final int BACKWARDS_BUTTON = Button.kX.value;
+        //TODO: backwards is supposed to be automated???????!!!!!
 
 
     //public static final double backbuttonDriveSpeedMultiplier = 0.05;
