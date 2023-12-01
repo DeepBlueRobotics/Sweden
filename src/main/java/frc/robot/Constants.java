@@ -17,8 +17,8 @@ import edu.wpi.first.wpilibj.XboxController.Button;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
-        public static final int LEFT_MOTOR_PORT = 0;
-        public static final int RIGHT_MOTOR_PORT = 3;
+        public static final int LEFT_MOTOR_PORT = 15;
+        public static final int RIGHT_MOTOR_PORT = 13;
         
         //change speed when and when not intaking to be accurate values
         public static final double SPEED_WHEN_NOT_INTAKING = 0.45;
@@ -29,10 +29,10 @@ public final class Constants {
         //public static final JoystickButton x1 = new JoystickButton(null, XBOX_CONTROLLER_PORT);
         //public static final JoystickButton x2 = new JoystickButton(null, XBOX_CONTROLLER_PORT2);
 
-        public static final int INTAKE_RIGHT_MOTOR_PORT = 14;
-        public static final int INTAKE_LEFT_MOTOR_PORT = 1;
-        public static final int OUTAKE_RIGHT_MOTOR_PORT = 9;
-        public static final int OUTAKE_LEFT_MOTOR_PORT = 17;
+        public static final int INTAKE_RIGHT_MOTOR_PORT = 16;
+        public static final int INTAKE_LEFT_MOTOR_PORT = 3;
+        public static final int OUTAKE_RIGHT_MOTOR_PORT = 5;        
+        public static final int OUTAKE_LEFT_MOTOR_PORT = 11;
 
         public static final double INTAKE_BACKWARD_LEFT = -0.05;
         public static final double INTAKE_BACKWARD_RIGHT = 0.05;
