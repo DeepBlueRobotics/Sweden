@@ -58,21 +58,8 @@ public class RobotContainer {
       }  
       ));
 
-    new JoystickButton(controller2, Constants.BACKWARDS_BUTTON).onTrue(new InstantCommand(
-      () -> {
-          backward = true;
-          if (backward == true) {
-            Back.execute();
-            Back.initialize();
-          }   
-      }
-      )).onFalse(new InstantCommand(
-      () -> {
-          backward = false;
-        //Make sure that the stopIntakeMotors doesn't stop the motors when X is released
-        
-      }
-    ));
+      new JoystickButton(controller2, Constants.BACKWARDS_BUTTON).onTrue(new BackwardsIntake(in));
+
     //make a button that turns intake motors backwards for a few seconds really slowly (button X)
     //5% power for 0.2 seconds
     //Make a method in intakeoutake file (look at slowmode in drivetrain file to reference) and call it in the lambda here

@@ -22,20 +22,15 @@ public class Autonomous extends CommandBase {
   public void initialize() {
     time.start();
     currenttime = Timer.getFPGATimestamp();
+    Drive.leftMotor.set(1);
+    Drive.rightMotor.set(1);
     //auto is 15 secs
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    if(currenttime > 15){
-      Drive.leftMotor.set(1);
-      Drive.rightMotor.set(1);
-    }
-    else if(currenttime == 15){
-      Drive.leftMotor.set(0);
-      Drive.rightMotor.set(0); 
-    }
+    
   }
 
   // Called once the command ends or is interrupted.
@@ -45,6 +40,11 @@ public class Autonomous extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
+    if(currenttime >= 10) {
+      Drive.leftMotor.set(0);
+      Drive.rightMotor.set(0); 
+      return true;
+    }
     return false;
   }
 }

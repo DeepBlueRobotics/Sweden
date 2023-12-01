@@ -32,14 +32,8 @@ public class BackwardsIntake extends CommandBase {
     //double timenow;
     //timenow = Timer.getFPGATimestamp();
     //double currenttime = timenow-starttime;
-    if(currenttime > 0.2){
       inout.intakeleftMotor.set(inout.intakeBackwardLeft);
       inout.intakerightMotor.set(inout.intakeBackwardRight);
-    }
-    else if(currenttime == 0.2){
-      inout.intakeleftMotor.set(0);
-      inout.intakerightMotor.set(0);
-    }
   }
 
   // Called once the command ends or is interrupted.
@@ -49,6 +43,11 @@ public class BackwardsIntake extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
+    if(currenttime >= 0.2){
+      inout.intakeleftMotor.set(0);
+      inout.intakerightMotor.set(0);
+      return true;
+    }
     return false;
   }
 }
