@@ -34,7 +34,7 @@ public class Drivetrain extends SubsystemBase {
   }
 
   public void drive(){ 
-    leftMotor.set(controller.getLeftY());
+    leftMotor.set(-controller.getLeftY());
     rightMotor.set(controller.getRightY());
     //double leftJoystickPosition = -controller.getLeftY();
     //double rightJoystickPosition = controller.getRightY();
