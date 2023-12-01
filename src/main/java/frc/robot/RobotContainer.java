@@ -27,6 +27,8 @@ public class RobotContainer {
   private Drivetrain dt = new Drivetrain(controller);
   boolean backward;
 //always initialize subsystems here
+//controller= driver controller
+//controller2 = manipulator
 
 
   public RobotContainer() {
