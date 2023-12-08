@@ -30,13 +30,6 @@ public class IntakeOutake extends SubsystemBase {
   double timenow;
    double starttime;
 
-   //LISTED BELOW ARE THE ACTUAL VALUES (they got inverted and mixed up all over)
- 
-//intake left motor = 1
-//intake right motor = -1
-//outake left motor = 1
-//outake right motor = -1
-
 
   /* Creates a new shooter. */
   public IntakeOutake() {
@@ -58,12 +51,6 @@ public class IntakeOutake extends SubsystemBase {
   public void intake() {
     intakeleftMotor.set(intakeDirectionLeft);
     intakerightMotor.set(intakeDirectionRight);
-    double intakeLeftOutput = intakeleftMotor.get();
-    double intakeRightOutput = intakerightMotor.get();
-
-    if (intakeLeftOutput <= Constants.SPEED_WHEN_NOT_INTAKING && intakeRightOutput >= Constants.SPEED_WHEN_NOT_INTAKING){
-      stopIntakeMotors();
-    }
   }
 
   public void stopIntakeMotors() {
@@ -74,11 +61,6 @@ public class IntakeOutake extends SubsystemBase {
   public void outake() {
     outakeleftMotor.set(-intakeDirectionLeft);
     outakerightMotor.set(-intakeDirectionRight);
-    double outakeLeftOutput = outakeleftMotor.get();
-    double outakeRightOutput = outakerightMotor.get();
-
-    if(outakeLeftOutput >= Constants.SPEED_WHEN_INTAKING && outakeRightOutput >= Constants.SPEED_WHEN_INTAKING)
-     stopOutakeMotors();
   }
 
   public void stopOutakeMotors() {

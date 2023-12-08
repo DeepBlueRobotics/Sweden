@@ -25,7 +25,7 @@ public class RobotContainer {
   private XboxController controller = new XboxController(Constants.XBOX_CONTROLLER_PORT);
   private XboxController controller2 = new XboxController(Constants.XBOX_CONTROLLER_PORT2);  
   private Drivetrain dt = new Drivetrain(controller);
-  boolean backward;
+  boolean backward;// stupid don't use bad
 //always initialize subsystems here
 //controller= driver controller
 //controller2 = manipulator
@@ -61,7 +61,7 @@ public class RobotContainer {
       ));
 
       new JoystickButton(controller2, Constants.BACKWARDS_BUTTON).onTrue(new BackwardsIntake(in));
-
+//not even used :|
     //make a button that turns intake motors backwards for a few seconds really slowly (button X)
     //5% power for 0.2 seconds
     //Make a method in intakeoutake file (look at slowmode in drivetrain file to reference) and call it in the lambda here
@@ -69,19 +69,14 @@ public class RobotContainer {
       
     new JoystickButton(controller, Constants.SLOWMODE).onTrue(new InstantCommand(
       () -> {
-        dt.slowmodeon = true;
-        //turns on slowmode
+        dt.slowmodeon = !dt.slowmodeon;
+        //toggles slowmode
       }
       ));
 
-    new JoystickButton(controller, Constants.REGULAR_DRIVE).onTrue(new InstantCommand(
-      () -> {
-        dt.slowmodeon = false;
-        //this button changes mode back to regular driving
-      }
-      ));
+
     }
-  
+  //
 
 
   public Command getAutonomousCommand() {
